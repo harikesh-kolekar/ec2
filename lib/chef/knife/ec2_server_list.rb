@@ -75,6 +75,7 @@ class Chef
 
           ui.color('Public IP', :bold),
           ui.color('Private IP', :bold),
+          ui.color('Subnet Id', :bold),
           ui.color('Flavor', :bold),
 
           if config[:az]
@@ -84,6 +85,7 @@ class Chef
           ui.color('Image', :bold),
           ui.color('SSH Key', :bold),
           ui.color('Security Groups', :bold),
+
 
           if config[:tags]
             config[:tags].split(",").collect do |tag_name|
@@ -112,6 +114,7 @@ class Chef
 
             server_list << server.public_ip_address.to_s
             server_list << server.private_ip_address.to_s
+            server_list << server.subnet_id.to_s
             server_list << server.flavor_id.to_s
 
             if config[:az]
